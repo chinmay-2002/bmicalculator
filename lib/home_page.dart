@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'Reuasable_card.dart';
+import 'Card_content.dart';
 
 const bottomCheight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -27,15 +30,24 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         backgroundColor: Color(0xFF0A0E21),
       ),
+
       body: Column(
         children: [
           Expanded(child: Row(
             children: [
               Expanded(child: Reausable(
                 colour: activeCardColor,
+                cardChild: IndividualCard(
+                  icon: FontAwesomeIcons.mars,
+                  label: 'MALE',
+                ),
               )),
               Expanded(child: Reausable(
                 colour: activeCardColor,
+                  cardChild: IndividualCard(
+                    icon: FontAwesomeIcons.venus,
+                    label: 'FEMALE',
+                  ),
               )),
             ],
           ),),
@@ -43,15 +55,63 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Expanded(child: Reausable(
                 colour: activeCardColor,
+                  cardChild: Column(
+                children: const [
+                  Icon(
+                  FontAwesomeIcons.mars,
+                  size: 80.0,
+                  ),
+                  SizedBox(
+                  height: 15.0,
+                  ),
+                  Text('MALE', style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.white,
+                  ),)
+
+                ],
+                )
               ))
             ],
           ),),
           Expanded(child: Row(
             children: [
               Expanded(child: Reausable(
+                cardChild: Column(
+                  children: const [
+                    Icon(
+                      FontAwesomeIcons.mars,
+                      size: 80.0,
+                    ),
+                    SizedBox(
+                      height: 15.0,
+                    ),
+                    Text('MALE', style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),)
+
+                  ],
+                ),
                 colour: activeCardColor,
               )),
               Expanded(child: Reausable(
+                cardChild: Column(
+                  children: const [
+                    Icon(
+                      FontAwesomeIcons.mars,
+                      size: 80.0,
+                    ),
+                    SizedBox(
+                      height: 15.0,
+                    ),
+                    Text('MALE', style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white
+                    ),)
+
+                  ],
+                ),
                 colour: activeCardColor,
               )),
             ],
@@ -76,18 +136,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-class Reausable extends StatelessWidget {
-  Reausable({required this.colour});
-  // final Widget cardChild ;
-  final Color colour ;
-  @override
-  Widget build(BuildContext context) {
-    return Container(margin: EdgeInsets.all(10),
-      // child: cardChild,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: colour,
-      ),
-    );
-  }
-}
+
+
